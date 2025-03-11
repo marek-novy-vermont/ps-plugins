@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vermont eShop Image Resizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <sp-theme scale="medium" color="dark">
+        <div class="container">
+            <h1>Vermont eShop Image Resizer</h1>
+            
+            <!-- Settings Panel -->
+            <sp-heading size="S">Nastavenia</sp-heading>
+            <div class="settings-panel">
+                <!-- Dimensions -->
+                <div class="form-row">
+                    <sp-label for="width">Šírka (px):</sp-label>
+                    <sp-textfield id="width" type="number" value="1600"></sp-textfield>
+                    <sp-label>x</sp-label>
+                    <sp-textfield id="height" type="number" value="2400"></sp-textfield>
+                    <sp-label>pixelov</sp-label>
+                </div>
+
+                <!-- Fill Method -->
+                <sp-heading size="XS">Spôsob Vyplnenia</sp-heading>
+                <sp-dropdown id="fillMethodDropdown">
+                    <sp-menu slot="options">
+                        <sp-menu-item value="normal">Normálne Vyplnenie</sp-menu-item>
+                        <sp-menu-item value="crop">Orezanie</sp-menu-item>
+                        <sp-menu-item value="contentAware">Generatívne Rozšírenie</sp-menu-item>
+                    </sp-menu>
+                </sp-dropdown>
+                <sp-body id="methodDescription" size="S">Normálne Vyplnenie: Zachová celý obrázok a pridá farbu pozadia</sp-body>
+
+                <!-- Background Color -->
+                <div id="bgColorPanel" class="bg-color-panel">
+                    <sp-heading size="XS">Farba Pozadia</sp-heading>
+                    <sp-body size="XS">Používa sa len pre Normálne Vyplnenie</sp-body>
+                    
+                    <div class="form-row">
+                        <sp-label for="hexColor">Hex:</sp-label>
+                        <sp-textfield id="hexColor" value="#FFFFFF"></sp-textfield>
+                    </div>
+                    
+                    <div class="form-row">
+                        <sp-label>RGB:</sp-label>
+                        <sp-textfield id="rInput" type="number" value="255" min="0" max="255"></sp-textfield>
+                        <sp-textfield id="gInput" type="number" value="255" min="0" max="255"></sp-textfield>
+                        <sp-textfield id="bInput" type="number" value="255" min="0" max="255"></sp-textfield>
+                    </div>
+                    
+                    <div id="colorPreview" class="color-preview"></div>
+                </div>
+
+                <!-- Quality Slider -->
+                <div class="form-row">
+                    <sp-label for="qualitySlider">Kvalita JPEG:</sp-label>
+                    <sp-slider id="qualitySlider" min="1" max="12" value="12"></sp-slider>
+                    <sp-label id="qualityValue">12</sp-label>
+                </div>
+            </div>
+
+            <!-- Folder Selection -->
+            <sp-heading size="S">Výber Priečinkov</sp-heading>
+            <div class="folder-panel">
+                <div class="folder-row">
+                    <sp-label>Vstupný Priečinok:</sp-label>
+                    <sp-textfield id="inputFolder" disabled></sp-textfield>
+                    <sp-button id="selectInputButton" variant="primary">Vybrať</sp-button>
+                </div>
+                
+                <div class="folder-row">
+                    <sp-label>Výstupný Priečinok:</sp-label>
+                    <sp-textfield id="outputFolder" disabled></sp-textfield>
+                    <div class="folder-options">
+                        <sp-radio id="useInputFolder" checked name="folderOption">Použiť Vstupný</sp-radio>
+                        <sp-radio id="useCustomFolder" name="folderOption">Vlastný</sp-radio>
+                    </div>
+                    <sp-button id="selectOutputButton" variant="primary" disabled>Vybrať</sp-button>
+                </div>
+            </div>
+
+            <!-- Execution Panel -->
+            <sp-heading size="S">Spustenie</sp-heading>
+            <div class="execution-panel">
+                <sp-progress-bar id="progressBar" min="0" max="100" value="0"></sp-progress-bar>
+                <sp-body id="statusText" size="M">Pripravené na spracovanie...</sp-body>
+                
+                <div class="button-row">
+                    <sp-button id="runButton" variant="cta" disabled>Spustiť Proces</sp-button>
+                    <sp-button id="abortButton" variant="warning" disabled>Prerušiť</sp-button>
+                </div>
+            </div>
+
+            <footer>
+                <sp-body size="XS">© Vermont Services Slovakia</sp-body>
+            </footer>
+        </div>
+    </sp-theme>
+    <script src="main.js"></script>
+</body>
+</html> 

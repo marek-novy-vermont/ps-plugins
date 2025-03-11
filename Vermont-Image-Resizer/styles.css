@@ -1,0 +1,102 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: 'Adobe Clean', sans-serif;
+}
+
+.container {
+    padding: 16px;
+    max-width: 100%;
+}
+
+/* Headers */
+h1 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+/* Panel Sections */
+.settings-panel,
+.folder-panel,
+.execution-panel {
+    margin-bottom:
+    24px;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: rgba(40, 40, 40, 0.2);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
+/* Background Color Panel */
+.bg-color-panel {
+    padding: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background-color: rgba(50, 50, 50, 0.3);
+}
+
+.color-preview {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #666;
+    background-color: #FFFFFF;
+    margin-top: 8px;
+}
+
+/* Folder Selection */
+.folder-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
+.folder-options {
+    display: flex;
+    gap: 16px;
+    margin: 8px 0;
+}
+
+/* Progress Bar */
+sp-progress-bar {
+    width: 100%;
+    margin: 12px 0;
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Footer */
+footer {
+    margin-top: 24px;
+    text-align: center;
+    color: #888;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 600px) {
+    .folder-row {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .folder-options {
+        margin: 0 16px;
+    }
+} 
